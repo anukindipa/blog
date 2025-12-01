@@ -1,0 +1,48 @@
+---
+import "../styles/global.css";
+---
+
+<header>
+    <div class="container">
+        <a href="/" class="title">blog.</a>
+        <nav class="links">
+            <a href="aa.com">projects</a>
+            <a href="aa.com">posts</a>
+            <a href="aa.com">about</a>
+        </nav>
+    </div>
+</header>
+
+<style>
+    .container {
+        padding: 2rem 0.5rem 2rem 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: nowrap;
+        white-space: nowrap;
+    }
+
+    .title {
+        text-decoration: none;
+        color: slategrey;
+        /* font-size: 1.4rem; */
+        font-weight: 600;
+    }
+    .links {
+        display: flex;
+        gap: 2.5rem;
+    }
+
+    .links a {
+        text-decoration: none;
+        color: #48525d;
+    }
+
+    @media (max-width: 700px) {
+        .container {
+            flex-wrap: wrap; /* allow items to break into new rows */
+            row-gap: 1rem;
+        }
+    }
+</style>
