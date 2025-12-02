@@ -1,12 +1,6 @@
 @import "./katex.css";
+@import "./colors.css";
 
-:root {
-  --color-bg: #19171a;
-  --color-accent-dark: #201e21;
-  --color-accent: #5c9ef5;
-  --color-text: #aca4aa;
-  --color-main: slateGrey;
-}
 
 html {
   background-color: var(--color-bg);
@@ -15,11 +9,4 @@ html {
 
 body {
   color: var(--color-text);
-}
-
-.content {
-  width: 100%;
-  max-width: 600px;
-  margin: 0 auto;
-  padding: 0 2rem;
 }

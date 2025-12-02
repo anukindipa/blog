@@ -9,16 +9,17 @@ import GithubIcon from "../assets/icons/github.svg";
     <div class="container">
         <a href="/" class="title">blog.</a>
         <nav class="links">
-            <a href="projects">projects</a>
-            <a href="posts">posts</a>
-            <a href="tags">tags</a>
-            <a href="about">about</a>
+            <a href="/projects">projects</a>
+            <a href="/posts">posts</a>
+            <a href="/tags">tags</a>
+            <a href="/about">about</a>
         </nav>
         <nav class="social-container">
             <a
                 class="social-entry"
                 href="https://github.com/anukindipa"
                 target="_blank"
+                aria-label="GitHub Profile"
             >
                 <GithubIcon class="social-image" />
             </a>
@@ -26,6 +27,7 @@ import GithubIcon from "../assets/icons/github.svg";
                 class="social-entry"
                 href="https://www.linkedin.com/in/anuk-indipa-gamage-28728a314/"
                 target="_blank"
+                aria-label="LinkedIn Profile"
             >
                 <LinkedInIcon class="social-image" />
             </a>
@@ -48,7 +50,7 @@ import GithubIcon from "../assets/icons/github.svg";
     /* link to home */
     .title {
         text-decoration: none;
-        color: slategrey;
+        color: var(--color-header-text);
         /* font-size: 1.4rem;*/
         font-weight: 600;
     }
@@ -61,7 +63,7 @@ import GithubIcon from "../assets/icons/github.svg";
 
     .links a {
         text-decoration: none;
-        color: slategrey;
+        color: var(--color-header-text);
         opacity: 0.8;
     }
 
@@ -79,11 +81,11 @@ import GithubIcon from "../assets/icons/github.svg";
 
     .title:hover,
     .links a:hover{
-        color: lightblue;
+        color: var(--color-header-hover);
         opacity: 1;
     }
     .social-image:hover{
-        fill: lightblue;
+        fill: var(--color-header-hover);
         opacity: 1;
     }
 

@@ -1,0 +1,10 @@
+:root {
+    --color-bg: #19171a;
+    --color-accent-dark: #201e21;
+    --color-accent: #5c9ef5;
+    --color-text: #aca4aa;
+    --color-main: slateGrey;
+
+    --color-header-text: slateGrey;
+    --color-header-hover: lightblue;
+}
