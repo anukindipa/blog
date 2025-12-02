@@ -10,7 +10,7 @@ const wrap_func = (path: string) => {
     if (path === "/") {
         return current === path ? "[ blog. ]" : "blog.";
     }
-    return current === path ? `[ ${path.slice(1)} ]` : path.slice(1);
+    return current === (path + "/") ? `[ ${path.slice(1)} ]` : path.slice(1);
 };
 ---
 
