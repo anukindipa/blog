@@ -1,0 +1,20 @@
+---
+import MarkdownBase from "../../layouts/MarkdownBase.astro";
+
+import { getCollection, render } from "astro:content";
+
+export async function getStaticPaths() {
+    const posts = await getCollection("posts");
+    return posts.map((post) => ({
+        params: { slug: post.id }, // auto-generated from filename
+        props: { post },
+    }));
+}
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+---
+
+<MarkdownBase post={post} backlink="/posts" backlinkName="all posts">
+    <Content />
+</MarkdownBase>

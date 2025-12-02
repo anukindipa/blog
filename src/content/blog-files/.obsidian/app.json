@@ -10,5 +10,9 @@
     "downscalePercent": 100
   },
   "promptDelete": false,
-  "propertiesInDocument": "source"
+  "propertiesInDocument": "source",
+  "attachmentFolderPath": "/attachments",
+  "newLinkFormat": "relative",
+  "useMarkdownLinks": true,
+  "showUnsupportedFiles": true
 }

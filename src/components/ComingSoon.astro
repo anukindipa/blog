@@ -1,0 +1,41 @@
+---
+import Base from "../layouts/Base.astro";
+---
+
+<Base>
+    <div class="coming-soon-container">
+        Coming Soon
+        <div class="loading-bar">
+            <div class="loading-fill"></div>
+        </div>
+    </div>
+</Base>
+
+<style>
+    .coming-soon-container {
+        position: relative;
+        min-height: 70vh;
+        flex-direction: column;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 2rem;
+        color: var(--color-header-text);
+    }
+
+    .loading-bar {
+        width: 20vb;
+        height: 10px;
+        background: #2b2a2f;
+        border-radius: 10px;
+        overflow: hidden;
+        margin: 30px auto;
+    }
+
+    .loading-fill {
+        width: 60%;
+        height: 100%;
+        background: var(--color-header-text); /* pink fill */
+        border-radius: 10px;
+    }
+</style>

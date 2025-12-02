@@ -1,10 +1,65 @@
 ---
 import Base from "../layouts/Base.astro";
+import GoBack from "../components/GoBack.astro";
 import "../styles/markdown.css";
-const { frontmatter } = Astro.props;
+const { post, backlink, backlinkName } = Astro.props;
 ---
 
 <Base>
-    <h1>{frontmatter.title}</h1>
+    <GoBack backlink={backlink} backlinkName={backlinkName} />
+    <h1 class="file_name">{post.id}.md</h1>
+    <div class="file-metadata">
+        <p class="date">{post.data.pubDate.toLocaleDateString("en-GB")}</p>
+        {
+            post.data.description && (
+                <p class="description">{post.data.description}</p>
+            )
+        }
+        {
+            post.data.tags && (
+                <div class="tags-container">
+                    {post.data.tags.map((tag: string, index: number) => (
+                        <>
+                            <a class="tag-entry" href={`/tags/${tag}`}>
+                                [{tag}]
+                            </a>
+                            {index < post.data.tags.length - 1 ? ", " : ""}
+                        </>
+                    ))}
+                </div>
+            )
+        }
+    </div>
+
     <slot />
 </Base>
+
+<style>
+    .file_name {
+        color: var(--color-header-text);
+        font-size: 2.5rem;
+        margin-bottom: 0.5rem;
+        margin-top: 0.8rem;
+    }
+
+    .file-metadata {
+        margin-bottom: 2rem;
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    .file-metadata * {
+        margin: 0;
+    }
+    .date {
+        color: var(--color-text-secondary);
+        font-size: 0.9rem;
+        opacity: 0.7;
+    }
+    .tags-container {
+    }
+    .tag-entry {
+        text-decoration: none;
+        color: var(--color-header-text);
+    }
+</style>

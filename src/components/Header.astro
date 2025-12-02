@@ -3,16 +3,33 @@ import "../styles/global.css";
 
 import LinkedInIcon from "../assets/icons/linkedin.svg";
 import GithubIcon from "../assets/icons/github.svg";
+
+const current = Astro.url.pathname; // current route
+
+const wrap_func = (path: string) => {
+    if (path === "/") {
+        return current === path ? "[ blog. ]" : "blog.";
+    }
+    return current === path ? `[ ${path.slice(1)} ]` : path.slice(1);
+};
 ---
 
 <header>
     <div class="container">
-        <a href="/" class="title">blog.</a>
+        <a href="/" class="title">{wrap_func("/")}</a>
         <nav class="links">
-            <a href="/projects">projects</a>
-            <a href="/posts">posts</a>
-            <a href="/tags">tags</a>
-            <a href="/about">about</a>
+            <a href="/projects">
+                {wrap_func("/projects")}
+            </a>
+            <a href="/posts">
+                {wrap_func("/posts")}
+            </a>
+            <a href="/tags">
+                {wrap_func("/tags")}
+            </a>
+            <a href="/about">
+                {wrap_func("/about")}
+            </a>
         </nav>
         <nav class="social-container">
             <a

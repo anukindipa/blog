@@ -1,9 +1,10 @@
 ---
-layout: ../layouts/MarkdownBase.astro
-title: Test Page
+pubDate: 2025-12-02
+description: Testing math rendering and code blocks.
+tags: [test, math, code, c-programming]
 ---
 
-# hello world
+# Test File Number One
 
 another deployment test
 

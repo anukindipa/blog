@@ -1,0 +1,21 @@
+---
+const { backlink, backlinkName } = Astro.props;
+---
+
+<a href={backlink} class="back-button"> &lt {backlinkName} </a>
+
+<style>
+    .back-button {
+        text-decoration: none;
+        color: var(--color-text);
+        opacity: 0.5;
+        font-size: 1rem;
+        display: inline-block;
+        /*
+        border-color: var(--color-header-text);
+        border: 2px solid;
+        padding: 3px 8px;
+        border-radius: 5px;
+        */
+    }
+</style>

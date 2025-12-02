@@ -1,0 +1,44 @@
+---
+import Base from "../../layouts/Base.astro";
+
+import GoBack from "../../components/GoBack.astro";
+
+import { getCollection } from "astro:content";
+
+export async function getStaticPaths() {
+    const allPosts = await getCollection("posts");
+    const uniqueTags = [
+        ...new Set(allPosts.map((post: any) => post.data.tags).flat()),
+    ];
+
+    return uniqueTags.map((tag) => {
+        const filteredPosts = allPosts.filter((post) =>
+            post.data.tags ? post.data.tags.includes(tag) : false,
+        );
+        return {
+            params: { tag },
+            props: { posts: filteredPosts },
+        };
+    });
+}
+const { tag } = Astro.params;
+const { posts } = Astro.props;
+---
+
+<Base>
+    <div>
+        <GoBack backlink="/tags" backlinkName="all tags" />
+        <div class="tags">
+            <p>Posts tagged with {tag}</p>
+            <ul>
+                {
+                    posts.map((post) => (
+                        <li>
+                            <a href={`/posts/${post.id}/`}>{post.id}</a>
+                        </li>
+                    ))
+                }
+            </ul>
+        </div>
+    </div>
+</Base>
