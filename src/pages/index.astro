@@ -1,6 +1,14 @@
 ---
-// import Base from "../layouts/Base.astro";
-import ComingSoon from "../components/ComingSoon.astro";
+import Base from "../layouts/Base.astro";
+import TagList from "../components/Tag_List.astro";
 ---
 
-<ComingSoon />
+<Base>
+    <div>
+        <h1>blog.</h1>
+    </div>
+    <section id="tags">
+        <h1>tags</h1>
+        <TagList />
+    </section>
+</Base>

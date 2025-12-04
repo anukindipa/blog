@@ -31,14 +31,6 @@ import Header from "../components/Header.astro";
 		width: 100%;
 		height: 100%;
 	}
-	@import "./katex.css";
-	@import "./colors.css": root {
-		--color-bg: #19171a;
-		--color-accent-dark: #201e21;
-		--color-accent: #5c9ef5;
-		--color-text: #aca4aa;
-		--color-main: slateGrey;
-	}
 
 	html {
 		background-color: var(--color-bg);
@@ -53,6 +45,7 @@ import Header from "../components/Header.astro";
 		width: 100%;
 		max-width: 600px;
 		margin: 0 auto;
-		padding: 0 2rem;
+		padding: 0 1rem;
+		overflow-x: hidden;
 	}
 </style>

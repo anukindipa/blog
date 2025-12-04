@@ -24,8 +24,9 @@ const wrap_func = (path: string) => {
             <a href="/posts">
                 {wrap_func("/posts")}
             </a>
-            <a href="/tags">
-                {wrap_func("/tags")}
+            <a href="/#tags">
+                <!-- {wrap_func("/tags")} -->
+                {current==="/#tags/" ? "[ tags ]" : "tags"}
             </a>
             <a href="/about">
                 {wrap_func("/about")}
