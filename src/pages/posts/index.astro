@@ -1,62 +1,23 @@
 ---
 import Base from "../../layouts/Base.astro";
 import Heading from "../../components/Heading.astro";
+import PostList from "../../components/PostList.astro";
 
 import { getCollection } from "astro:content";
 
-const allPosts = await getCollection("posts");
+let allPosts = await getCollection("posts");
+let pinnedPosts = allPosts.filter((post) => post.data.pinned);
+let unPinnedPosts = allPosts.filter((post) => !post.data.pinned);
+// sort posts by pubDate descending
+pinnedPosts.sort((a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime());
+
+allPosts.sort((a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime());
 ---
 
 <Base>
     <Heading Title="Posts" />
-    <div class="posts-list">
-        {
-            allPosts.map((post) => (
-                <a class="post-row" href={`/posts/${post.id}/`}>
-                    <div class="post-date">
-                        {post.data.pubDate
-                            .toLocaleDateString("en-GB")
-                            .replaceAll("/", "-")}
-                    </div>
-                    <div class="post-title">{post.id}</div>
-                </a>
-            ))
-        }
-    </div>
+    <h2>> pinned posts</h2>
+    <PostList allPosts={pinnedPosts} />
+    <h2>> all posts</h2>
+    <PostList allPosts={allPosts} />
 </Base>
-
-<style>
-    .posts-list {
-        display: grid;
-        gap: 0.7rem;
-    }
-    .post-row {
-        display: grid;
-        grid-template-columns: 100px 1fr;
-        gap: 0.5rem;
-        align-items: center;
-
-        text-decoration: none;
-        color: var(--text-color);
-
-        margin: 0.5rem 0;
-        padding: 1rem 1.2rem;
-
-        border: 1px solid rgba(255, 255, 255, 0.08);
-        border-radius: 8px;
-    }
-
-    .post-date {
-        color: var(--color-text-secondary);
-        font-size: 0.8rem;
-        opacity: 0.6;
-    }
-
-    .post-title {
-        font-size: 1.2rem;
-    }
-
-    .post-row:hover .post-title {
-        color: var(--color-header-hover);
-    }
-</style>

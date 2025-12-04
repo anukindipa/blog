@@ -2,6 +2,7 @@
 pubDate: 2025-12-02
 description: Testing math rendering and code blocks.
 tags: [test, math, code, c-programming]
+pinned: true
 ---
 
 # Test File Number One

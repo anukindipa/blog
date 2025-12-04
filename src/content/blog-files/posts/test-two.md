@@ -1,5 +1,5 @@
 ---
-pubDate: 2025-12-02
+pubDate: 2025-12-04
 description: Testing image rendering and tags.
 tags: [test, math, cauchy]
 ---

@@ -1,0 +1,85 @@
+---
+import type { CollectionEntry } from "astro:content";
+
+interface Props {
+  allPosts: CollectionEntry<"posts">[];
+}
+
+const { allPosts } = Astro.props;
+---
+
+
+<div class="posts-list">
+    {
+        allPosts.map((post) => (
+            <a class="post-row" href={`/posts/${post.id}/`}>
+                <div class="post-date">
+                    {post.data.pubDate
+                        .toLocaleDateString("en-GB")
+                        .replaceAll("/", "-")}
+                </div>
+                <div class="post-title">{post.id}</div>
+                {post.data.description && (
+                <div></div>
+                    <div class="post-description">
+                        > {
+                        // add full stop to end of description
+                        post.data.description[ post.data.description.length - 1 ] === '.'
+                            ? post.data.description
+                            : post.data.description + '.'
+                        }
+                    </div>
+                )}
+            </a>
+        ))
+    }
+</div>
+
+<style>
+    .posts-list {
+        display: grid;
+        gap: 0.7rem;
+    }
+    .post-row {
+        display: grid;
+        /* 100px fixed for date, rest (1 fraction of reminaing) goes to title*/
+        grid-template-columns: 100px 1fr;
+        gap: 0.5rem;
+        align-items: center;
+
+        text-decoration: none;
+        color: var(--text-color);
+
+        margin: 0.5rem 0;
+        padding: 1rem 1.2rem;
+
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 8px;
+    }
+
+    .post-date {
+        color: var(--color-text-secondary);
+        font-size: 0.8rem;
+        opacity: 0.6;
+    }
+
+    .post-title {
+        font-size: 1.2rem;
+    }
+
+    .post-description {
+        font-size: 0.9rem;
+        opacity: 0.7;
+        margin-top: 0.2rem;
+    }
+
+    .post-row:hover .post-title {
+        color: var(--color-header-hover);
+    }
+    .post-row:hover .post-description {
+        opacity: 1;
+    }
+    .post-row:hover .post-date {
+        opacity: 1;
+    }
+</style>
